@@ -9,7 +9,7 @@
   ],
   "buildPaths": {
     "development": "dev",
-    "production": "dist"
+    "production": "docs"
   },
   "files": {
     "index": [
