@@ -11,7 +11,7 @@ Project website: http://satori.refinery-platform.org
 ```bash
 $ npm install
 $ bower install
-$ gulp --open
+$ npm start
 ```
 
 **Production build:**
