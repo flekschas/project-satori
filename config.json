@@ -9,7 +9,7 @@
   ],
   "buildPaths": {
     "development": "dev",
-    "production": "../satori-ghp"
+    "production": "dist"
   },
   "files": {
     "index": [
