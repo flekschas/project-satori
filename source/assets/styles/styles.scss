@@ -844,7 +844,7 @@ ul.iconized {
 
 #footer {
     margin-top: 1rem;
-    padding: 2rem 0;
+    padding: 2rem 0 0 0;
     font-size: 0.85em;
     color: $white;
     background: $blue;
@@ -878,6 +878,16 @@ ul.iconized {
     .copyright {
         color: transparentize($white, 0.5);
         font-size: 0.85em;
+    }
+
+    #more-at-lekschas-de {
+        margin-top: 1rem;
+        padding: 0.75rem 0;
+        background: $blue-dark;
+
+        a {
+            color: $white;
+        }
     }
 }
 
