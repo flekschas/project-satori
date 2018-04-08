@@ -51,7 +51,7 @@
     "uglify-js": "3.1.10"
   },
   "scripts": {
-    "build": "gulp build --production",
+    "build": "gulp build --production && cp ./CNAME ./docs/",
     "start": "gulp --open"
   }
 }
