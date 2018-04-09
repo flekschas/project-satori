@@ -64,4 +64,8 @@
     addEventListener(fullScreenHls[i], 'mouseenter', hlEnter);
     addEventListener(fullScreenHls[i], 'mouseout', hlOut);
   }
+
+  window.mediumZoom('.zoomable', {
+    margin: 48
+  });
 }());

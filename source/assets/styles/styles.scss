@@ -131,6 +131,10 @@ button:active {
     background: $red;
 }
 
+figure img {
+    max-width: 100%;
+}
+
 figcaption {
     font-size: 0.85em;
 }
@@ -155,6 +159,10 @@ section.text {
     figure {
         margin: 0.25em 2em;
         padding: 0;
+
+        img {
+            max-width: 100%;
+        }
 
         figcaption {
             margin-top: 1em;
@@ -673,6 +681,14 @@ ul.iconized {
     display: block;
     font-size: 0.85em;
     color: $gray-medium;
+
+    svg {
+        margin-left: 0.25em;
+
+        &:first-child {
+            margin-left: 0;
+        }
+    }
 }
 
 .two-authors li:first-child:after {
@@ -784,62 +800,45 @@ ul.iconized {
     font-style: italic;
 }
 
+.medium-zoom--open .medium-zoom-overlay {
+    z-index: 10;
+}
+
+.medium-zoom-image--open {
+    z-index: 11;
+}
+
 /*
  * -----------------------------------------------------------------------------
  * Specific styles, i.e. IDs
  * -----------------------------------------------------------------------------
  */
 
-#fig-teaser {
-    @include ratio(2520, 1324);
-    background: url(../images/teaser.png) no-repeat center center;
-    background-size: cover;
-}
-
 #fig-user-roles {
-    @include ratio(800, 202);
-
     float: right;
+    width: 17.75em;
     margin-right: 0;
-    background: url(../images/user-roles.png) no-repeat top center;
-    background-size: contain;
 }
 
 #fig-overview {
-    @include ratio(800, 620);
-
     float: left;
+    width: 15em;
     margin-left: 0;
     padding: 0.5em;
-    background: url(../images/overview.png) no-repeat top center;
-    background-size: contain;
-}
-
-#fig-ontology {
-    @include ratio(800, 395);
-
-    background: url(../images/ontology.png) no-repeat top center;
-    background-size: contain;
-}
-
-#fig-precision-recall {
-    @include ratio(800, 319);
-
-    background: url(../images/precision-recall.png) no-repeat top center;
-    background-size: contain;
 }
 
 #fig-link-indication {
-    @include ratio(336, 800);
-
     float: right;
+    width: 7.1em;
     margin-right: 0;
-    background: url(../images/link-indication.png) no-repeat top center;
-    background-size: contain;
 }
 
 #authors-list h4 + p {
     margin-top: -0.25rem;
+}
+
+#news-items .text {
+    text-align: justify;
 }
 
 #footer {
