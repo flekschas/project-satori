@@ -182,6 +182,22 @@ gulp.task('javascript', function () {
   return tasks;
 });
 
+gulp.task('js-libs', function () {
+  var dest = production ?
+    config.buildPaths.production : config.buildPaths.development;
+
+  dest += config.paths.assets + config.paths.scripts;
+
+  return gulp
+    .src(config.files.jsLibs.map(function (path) {
+      return config.paths.libs + path;
+    }))
+    // Only pass files that have a newer time stamp
+    .pipe(newer(dest))
+    .pipe(gulp.dest(dest))
+    .pipe(livereload());
+});
+
 gulp.task('sass', function () {
   var dest = production ?
     config.buildPaths.production : config.buildPaths.development;
@@ -320,7 +336,7 @@ gulp.task('build', function(callback) {
   runSequence(
     'clean',
     [
-      'images', 'index', 'javascript', 'sass', 'videos', 'docs'
+      'images', 'index', 'javascript', 'js-libs', 'sass', 'videos', 'docs'
     ],
     callback);
 });

@@ -17,15 +17,14 @@
     ],
     "js": [
       {
-        "name": "ga.js",
-        "files": "source/assets/scripts/ga.js"
-      },
-      {
         "name": "scripts.js",
         "files": [
           "source/assets/scripts/main.js"
         ]
       }
+    ],
+    "jsLibs": [
+      "/medium-zoom/dist/medium-zoom.min.js"
     ],
     "scss": [
       "index.scss"
@@ -33,6 +32,7 @@
   },
   "paths": {
     "assets": "/assets",
+    "libs": "node_modules",
     "docs": "/docs",
     "images": "/images",
     "scripts": "/scripts",
