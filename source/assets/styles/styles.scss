@@ -42,8 +42,8 @@ h1 {
         width: 2.5rem;
         height: 3rem;
         padding-right: 0.5rem;
-        // color: transparentize($red, 0.1);
-        color: transparentize(lighten(desaturate($blue, 33%), 50%), 0.1);
+        color: transparentize($red, 0.5);
+        // color: transparentize(lighten(desaturate($blue, 33%), 50%), 0.1);
     }
 }
 
@@ -53,8 +53,8 @@ h2 {
 
 h1 + h2 {
     color: transparentize($black, 0.2);
-    margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
     line-height: 1.2;
 }
 
@@ -184,253 +184,9 @@ section.text {
     color: $gray-darker;
 }
 
-.fullscreen {
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-}
-
-.fullscreen > .content {
-    position: relative;
-    z-index: 3;
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-}
-
-.fullscreen .bg {
-    z-index: 2;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0.66;
-    background: $white;
-    transition: opacity $slow-transition $easing;
-
-    animation-name: slowOpacityDrop;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 10s;
-}
-
-body.mobile .fullscreen .bg {
-  opacity: 0.33 !important;
-  background: url('../images/satori-short-first-frame.jpg') no-repeat center center fixed;
-  background-size: cover;
-
-  animation-name: slowOpacityIncrease;
-  animation-iteration-count: 1;
-  animation-timing-function: ease-out;
-  animation-duration: 10s;
-}
-
-.fullscreen.more-opaque .bg {
-    opacity: 0.9;
-}
-
-@-moz-keyframes slowOpacityDrop {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.66;
-    }
-}
-@-webkit-keyframes slowOpacityDrop {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.66;
-    }
-}
-@keyframes slowOpacityDrop {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.66;
-    }
-}
-
-@-moz-keyframes slowOpacityIncrease {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0.33;
-    }
-}
-@-webkit-keyframes slowOpacityIncrease {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0.33;
-    }
-}
-@keyframes slowOpacityIncrease {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 0.33;
-    }
-}
-
-.fullscreen video.bg-video {
-    z-index: 1;
-}
-
-video.bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background: url('../images/satori-short-first-frame.png') no-repeat;
-    background-size: cover;
-}
-
-body.mobile video.bg-video {
-  display: none;
-}
-
-.fullscreen-blocker {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-}
-
-.pointer-wrapper {
-    position: absolute;
-    z-index: 2;
-    top: -3.25rem;
-    left: 50%;
-    overflow: visible;
-    transform: translateX(-50%) scale(1);
-    animation-name: delayedScaleUp;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-out;
-    animation-duration: 5s;
-}
-
-@-moz-keyframes delayedScaleUp {
-    0% {
-        -moz-transform: translateX(-50%) scale(0);
-    }
-    95% {
-        -moz-transform: translateX(-50%) scale(0);
-    }
-    100% {
-        -moz-transform: translateX(-50%) scale(1);
-    }
-}
-@-webkit-keyframes delayedScaleUp {
-    0% {
-        -webkit-transform: translateX(-50%) scale(0);
-    }
-    95% {
-        -webkit-transform: translateX(-50%) scale(0);
-    }
-    100% {
-        -webkit-transform: translateX(-50%) scale(1);
-    }
-}
-@keyframes delayedScaleUp {
-    0% {
-        transform: translateX(-50%) scale(0);
-    }
-    95% {
-        transform: translateX(-50%) scale(0);
-    }
-    100% {
-        transform: translateX(-50%) scale(1);
-    }
-}
-
-.pointer {
-    bottom: 0.75rem;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    transform: translateY(0);
-    color: $white;
-    white-space: nowrap;
-    background: transparentize($black, 0.1);
-
-    animation-name: slowDownTopMove;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-out;
-    animation-duration: 2s;
-
-    &:after {
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        content: '';
-        border: solid transparent;
-        pointer-events: none;
-
-        border-color: transparent;
-        border-top-color: transparentize($black, 0.1);
-        border-width: 0.5rem;
-        margin-left: -0.5rem;
-    }
-}
-
-@-moz-keyframes slowDownTopMove {
-    0% {
-        -moz-transform: translateY(0);
-    }
-    25% {
-        -moz-transform: translateY(0.5rem);
-    }
-    100% {
-        -moz-transform: translateY(0);
-    }
-}
-@-webkit-keyframes slowDownTopMove {
-    0% {
-        -webkit-transform: translateY(0);
-    }
-    25% {
-        -webkit-transform: translateY(0.5rem);
-    }
-    100% {
-        -webkit-transform: translateY(0);
-    }
-}
-@keyframes slowDownTopMove {
-    0% {
-        transform: translateY(0);
-    }
-    25% {
-        transform: translateY(0.5rem);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
 .content-wrapper {
     position: relative;
-    z-index: 3;
     background: $white;
-    box-shadow: 0 -1px 2rem 0 rgba(0, 0, 0, 0.1), 0 -1px 6px 0 rgba(0, 0, 0, 0.1), inset 0 1px 0 0 rgba(0, 0, 0, 0.2);
 }
 
 .blue {
@@ -452,6 +208,7 @@ svg.centered {
 }
 
 .abstract {
+    color: $gray-darker;
     text-align: justify;
 }
 
@@ -758,10 +515,10 @@ ul.iconized {
 }
 
 .ribbon-wrapper {
+    position: absolute;
     width: 8.5em;
     height: 8.5em;
     overflow: hidden;
-    position: absolute;
     top: 0;
     right: 0;
     z-index: 10;
@@ -808,11 +565,66 @@ ul.iconized {
     z-index: 11;
 }
 
+.on-top {
+    position: relative;
+    z-index: 1;
+}
+
 /*
  * -----------------------------------------------------------------------------
  * Specific styles, i.e. IDs
  * -----------------------------------------------------------------------------
  */
+
+#bg-img {
+    @include ratio(3360, 2100);
+
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.5;
+
+    .fade-out {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,0.01) 1%, rgba(255,255,255,1) 100%);
+        background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.01) 1%,rgba(255,255,255,1) 100%);
+        background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,0.01) 1%,rgba(255,255,255,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+    }
+
+    video {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100%;
+        max-width: 80em;
+        height: auto;
+        z-index: -100;
+        -ms-transform: translateX(-50%) translateY(0);
+        -moz-transform: translateX(-50%) translateY(0);
+        -webkit-transform: translateX(-50%) translateY(0);
+        transform: translateX(-50%) translateY(0);
+        background: url('../images/satori-short-first-frame.png') no-repeat;
+        background-size: cover;
+    }
+}
+
+body.mobile #bg-img video {
+    display: none;
+}
+
+#fig-teaser img {
+    border-radius: 7px;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05),
+                0 0 0.25rem 0 rgba(0, 0, 0, 0.2),
+                0 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
 
 #fig-user-roles {
     float: right;
@@ -946,7 +758,7 @@ ul.iconized {
     }
 
     h1 + h2 {
-        font-size: 3.5rem;
+        font-size: 2rem;
     }
 
     .content {
@@ -975,10 +787,6 @@ ul.iconized {
         }
     }
 
-    h1 + h2 {
-        font-size: 4rem;
-    }
-
     .content {
         margin-left: 11.1112%;  /* 1/9 */
         margin-right: 11.1112%;
@@ -986,14 +794,6 @@ ul.iconized {
 
     .video {
         width: 80%;
-    }
-
-    .pointer {
-        font-size: 30px;
-    }
-
-    .pointer-wrapper {
-        top: -3.85rem;
     }
 }
 
@@ -1019,14 +819,6 @@ ul.iconized {
     .video {
         width: 70%;
     }
-
-    .pointer {
-        font-size: 36px;
-    }
-
-    .pointer-wrapper {
-        top: -4.25rem;
-    }
 }
 
 /* 1600px */
@@ -1042,13 +834,5 @@ ul.iconized {
     .content {
         margin-left: 20%;  /* 1/5 */
         margin-right: 20%;
-    }
-
-    .pointer {
-        font-size: 48px;
-    }
-
-    .pointer-wrapper {
-        top: -5rem;
     }
 }
