@@ -1,2 +1,2 @@
-!function(){function e(){o=1===o?2:1,u.className=c+" more-opaque"}function n(){setTimeout(function(){o<2?(o=0,u.className=c):o=1},100)}for(var t=function(e,n,t){return e.addEventListener?(e.addEventListener(n,t,!1),!0):e.attachEvent?e.attachEvent("on"+n,t):(n="on"+n,"function"==typeof e[n]&&(t=function(e,n){return function(){e.apply(this,arguments),n.apply(this,arguments)}}(e[n],t)),e[n]=t,!0)},o=0,u=document.querySelector(".fullscreen"),c=u.className,a=document.querySelectorAll(".fullscreen h1, .fullscreen h2"),r=a.length;r--;)t(a[r],"mouseenter",e),t(a[r],"mouseout",n);window.mediumZoom(".zoomable",{margin:48})}();
+window.mediumZoom(".zoomable",{margin:48});
 //# sourceMappingURL=scripts.js.map
